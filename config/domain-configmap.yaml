@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-domain
+  namespace: knative-serving
+data:
+  51charts.com: ""
+#  192.168.2.192.xip.io: ""
+---
+# kubectl edit cm config-domain --namespace knative-serving
+

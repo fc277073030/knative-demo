@@ -1,0 +1,12 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata: 
+  name: java-demo
+spec:
+  template:
+    spec:
+      containers:
+        - image: fc277073030/java-demo:latest
+          env:
+            - name: TARGET
+              value: "Java Demo v1"

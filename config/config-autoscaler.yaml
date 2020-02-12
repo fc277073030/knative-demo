@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-autoscaler
+  namespace: knative-serving
+data:
+  container-concurrency-target-default: 100   # 限制并发请求，annotation: autoscaling.knative.dev/target: 50
+  container-concurrency-target-percentage: 1.0
+  enable-scale-to-zero: true   # 启用缩放至零
+  enable-vertical-pod-autoscaling: false
+  max-scale-up-rate: 10
+  panic-window: 6s
+  scale-to-zero-grace-period: 30s     # 指定将非活动修订版本缩放到零（最小：6s）之前保持运行的时间
+  stable-window: 60s                  # 在稳定模式下运行时，自动定标器将在稳定窗口上的平均并发性上运行（最小：6s）, annotations: autoscaling.knative.dev/window: 60s
+  tick-interval: 2s
+
+---
+# kubectl -n knative-serving get cm config-autoscaler

@@ -1,0 +1,13 @@
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: trigger-event-display
+spec:
+  filter:
+    attributes:
+      type: event-display
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: event-display

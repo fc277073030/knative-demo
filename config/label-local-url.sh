@@ -1,0 +1,1 @@
+kubectl label kservice java-demo  serving.knative.dev/visibility=cluster-local

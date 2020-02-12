@@ -1,0 +1,10 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: gitlab-message-dumper
+  namaspace: gitlabsouce-system
+spec:
+  template:
+    spec:
+      containers:
+        - image: fc277073030/message_dumper:latest

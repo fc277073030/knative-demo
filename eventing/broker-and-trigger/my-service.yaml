@@ -1,0 +1,12 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: my-service
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+        -  # This corresponds to
+          # https://github.com/knative/eventing-contrib/blob/v0.2.1/cmd/message_dumper/dumper.go.
+          image: fc277073030/message_dumper:latest

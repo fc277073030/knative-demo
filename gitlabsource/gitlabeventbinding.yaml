@@ -1,0 +1,22 @@
+apiVersion: sources.eventing.triggermesh.dev/v1alpha1
+kind: GitLabSource
+metadata:
+  name: gitlabsample
+spec:
+  eventTypes:
+    - merge_requests_events
+    - push_events
+    - issues_events
+  projectUrl: https://gitlab.oifitech.com/fanchao/flask-demo.git
+  accessToken:
+    secretKeyRef:
+      name: gitlabsecret
+      key: accessToken
+  secretToken:
+    secretKeyRef:
+      name: gitlabsecret
+      key: secretToken
+  sink:
+    apiVersion: serving.knative.dev/v1alpha1
+    kind: Service
+    name: gitlab-message-dumper
